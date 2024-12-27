@@ -16,31 +16,67 @@ export default function Home() {
       </header>
 
       <section className="my-8">
-        <h2 className="text-2xl font-semibold mb-4">About Me</h2>
+        <h2 className="text-2xl font-semibold mb-4">Sobre Mi</h2>
         <p className="text-black">
-          I am a passionate developer with experience in building web applications using modern technologies. I love to learn and explore new tools and frameworks.
+          Apasionado por las tecnologías, desarrollo y actualmente me encuentro egresado de mi carrera, por lo que me encuentro buscando oportunidades. Espero te guste mi portafolio.
         </p>
       </section>
 
       <section className="my-8">
-        <h2 className="text-2xl font-semibold mb-4">Projects</h2>
-        <ul className="list-disc list-inside">
-          <li className="mb-2">
-            <strong>Project One</strong> - A web application built with React and Node.js.
-          </li>
-          <li className="mb-2">
-            <strong>Project Two</strong> - A mobile app developed using React Native.
-          </li>
-          <li className="mb-2">
-            <strong>Project Three</strong> - An e-commerce platform using Next.js and MongoDB.
-          </li>
-        </ul>
+        <h2 className="text-2xl font-semibold mb-4">Proyectos Destacados</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <Image
+              src="/project1.jpg"
+              alt="Proyecto 1"
+              width={400}
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-bold mb-2">Proyecto 1</h3>
+              <p className="text-gray-700">
+                <i>Guest Experience</i> es un Sitio Web para gestionar reservas de hoteles utilizando Astro.js y Nest.js como tecnologías principales.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <Image
+              src="/project2.jpg"
+              alt="Proyecto 2"
+              width={400}
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-bold mb-2">Proyecto 2</h3>
+              <p className="text-gray-700">
+                A mobile app developed using React Native.
+              </p>
+            </div>
+          </div>
+          <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+            <Image
+              src="/project3.jpg"
+              alt="Project Three"
+              width={400}
+              height={300}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="text-xl font-bold mb-2">Project Three</h3>
+              <p className="text-gray-700">
+                An e-commerce platform using Next.js and MongoDB.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="my-8">
-        <h2 className="text-2xl font-semibold mb-4">Contact</h2>
+        <h2 className="text-2xl font-semibold mb-4">Contacto</h2>
         <p className="text-black">
-          Feel free to reach out to me via email at <a href="mailto:nicolasignacio.j.c@gmail.com" className="text-blue-500">nicolasignacio.j.c@gmail.com</a>.
+          Puedes escribirme directamente a mi correo personal: <a href="mailto:nicolasignacio.j.c@gmail.com" className="text-blue-500">nicolasignacio.j.c@gmail.com</a>.
         </p>
       </section>
     </div>

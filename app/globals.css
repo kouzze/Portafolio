@@ -2,20 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000; /* Cambiar a negro */
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #F5F5F5;
-    --foreground: #000000; /* Cambiar a negro en modo oscuro */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 90% 51%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 263 90% 51%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 263 90% 51%;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.15), transparent 40%),
+      radial-gradient(circle at 0% 100%, hsl(var(--primary) / 0.1), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px hsl(var(--primary) / 0.5),
+               0 0 20px hsl(var(--primary) / 0.3),
+               0 0 30px hsl(var(--primary) / 0.2);
+}
+
+.card-glow {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
 }

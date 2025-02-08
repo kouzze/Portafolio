@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ExternalLink, Github } from 'lucide-react';
 
 interface Project {
@@ -21,81 +20,105 @@ interface ProjectCardProps {
   index: number;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project }: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="group cursor-pointer"
+      <div 
         onClick={() => setIsOpen(true)}
+        className="group cursor-pointer rounded-lg bg-secondary/50 backdrop-blur-sm overflow-hidden card-glow hover:bg-secondary/70 transition-colors"
       >
-        <div className="relative overflow-hidden rounded-lg bg-secondary/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 card-glow">
-          <div className="aspect-video w-full">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-          <div className="p-6">
-            <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
-            <p className="mb-4 text-muted-foreground">{project.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {project.tags.map((tag, i) => (
-                <Badge key={i} variant="secondary" className="bg-primary/10">
-                  {tag}
-                </Badge>
-              ))}
-            </div>
+        <div className="relative">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full aspect-video object-cover"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+          <p className="text-muted-foreground mb-4">{project.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.slice(0, 3).map((tag, i) => (
+              <Badge
+                key={i}
+                variant="secondary"
+                className="bg-primary/10"
+              >
+                {tag}
+              </Badge>
+            ))}
+            {project.tags.length > 3 && (
+              <Badge variant="secondary" className="bg-primary/10">
+                +{project.tags.length - 3}
+              </Badge>
+            )}
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
           </DialogHeader>
-          <div className="mt-4">
+          
+          <div className="space-y-6">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full rounded-lg object-cover"
+              className="w-full aspect-video object-cover rounded-lg"
             />
-            <div className="mt-6 space-y-4">
+
+            <div className="space-y-4">
               <p className="text-lg text-muted-foreground">
                 {project.longDescription || project.description}
               </p>
+
               {project.features && (
-                <div className="mt-4">
-                  <h4 className="mb-2 text-lg font-semibold">Características Principales</h4>
-                  <ul className="list-disc pl-5 space-y-2">
+                <div className="space-y-3">
+                  <h4 className="text-lg font-semibold">Características Principales</h4>
+                  <ul className="grid gap-3">
                     {project.features.map((feature, i) => (
-                      <li key={i} className="text-muted-foreground">{feature}</li>
+                      <li
+                        key={i}
+                        className="flex items-center space-x-3 bg-secondary/30 rounded-lg p-3"
+                      >
+                        <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
                     ))}
                   </ul>
                 </div>
               )}
-              <div className="flex flex-wrap gap-2 mt-4">
+
+              <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag, i) => (
-                  <Badge key={i} variant="secondary" className="bg-primary/10">
+                  <Badge
+                    key={i}
+                    variant="secondary"
+                    className="bg-primary/10"
+                  >
                     {tag}
                   </Badge>
                 ))}
               </div>
-              <div className="flex gap-4 mt-6">
+
+              <div className="flex flex-wrap gap-4 pt-4">
                 {project.githubUrl && (
-                  <Button variant="outline" onClick={() => window.open(project.githubUrl, '_blank')}>
+                  <Button
+                    variant="outline"
+                    onClick={() => window.open(project.githubUrl, '_blank')}
+                  >
                     <Github className="mr-2 h-4 w-4" />
                     Ver Código
                   </Button>
                 )}
                 {project.liveUrl && (
-                  <Button onClick={() => window.open(project.liveUrl, '_blank')}>
+                  <Button
+                    onClick={() => window.open(project.liveUrl, '_blank')}
+                  >
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Ver Demo
                   </Button>

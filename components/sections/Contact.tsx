@@ -12,11 +12,11 @@ export function Contact() {
           <Mail className="w-5 h-5" />
           <span>nicolasignacio.j.c@gmail.com</span>
         </Link>
-        <Link href="https://github.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+        <Link href="https://github.com/kouzze" className="flex items-center gap-2 hover:text-primary transition-colors">
           <Github className="w-5 h-5" />
           <span>github.com/kouzze</span>
         </Link>
-        <Link href="https://linkedin.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+        <Link href="https://linkedin.com/in/nicolas-jc" className="flex items-center gap-2 hover:text-primary transition-colors">
           <Linkedin className="w-5 h-5" />
           <span>linkedin.com/in/nicolas-jc</span>
         </Link>

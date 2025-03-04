@@ -42,5 +42,5 @@ export const PROJECTS = [
     ],
     githubUrlBE: "https://github.com/kouzze/guest-experience-be",
     githubUrlFE: "https://github.com/kouzze/guest-experience-fe",
-  }
+  },
 ];

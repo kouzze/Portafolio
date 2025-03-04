@@ -12,6 +12,7 @@ export function Navigation() {
     { name: 'Inicio', href: '#' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Sobre Mí', href: '#about' },
+    { name: 'Analytics', href: '#analytics' },
     { name: 'Contacto', href: '#contact' },
   ];
 

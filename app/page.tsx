@@ -3,6 +3,7 @@ import { Projects } from "@/components/sections/Projects";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
 import { Navigation } from "@/components/sections/Navigation";
+import { Analytics } from "@/components/sections/Analytics";
 
 export default function Home() {
   return (
@@ -14,6 +15,9 @@ export default function Home() {
       </div>
       <div id="about">
         <About />
+      </div>
+      <div id="analytics">
+        <Analytics />
       </div>
       <div id="contact">
         <Contact />
